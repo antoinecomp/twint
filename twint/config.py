@@ -13,6 +13,10 @@ class Config:
     Lang: Optional[str] = None
     Output: Optional[str] = None
     Elasticsearch: object = None
+    MongoDB: object = None
+    MongoDBurl: object = None
+    MongoDBdb: object = None
+    MongoDBcollection: object = None
     Year: Optional[int] = None
     Since: Optional[str] = None
     Until: Optional[str] = None

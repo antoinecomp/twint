@@ -88,6 +88,9 @@ def initialize(args):
     c.Near = args.near
     c.Lang = args.lang
     c.Output = args.output
+    c.MongoDBurl = args.mongodburl
+    c.MongoDBdb = args.mongodbdb
+    c.MongoDBcollection = args.mongodbcollection
     c.Elasticsearch = args.elasticsearch
     c.Year = args.year
     c.Since = args.since
@@ -160,6 +163,9 @@ def options():
     ap.add_argument("-l", "--lang", help="Search for Tweets in a specific language.")
     ap.add_argument("-o", "--output", help="Save output to a file.")
     ap.add_argument("-es", "--elasticsearch", help="Index to Elasticsearch.")
+    ap.add_argument("--mongodburl", help="URL to MongoDB.")
+    ap.add_argument("--mongodbdb", help="DB of MongoDB.")
+    ap.add_argument("--mongodbcollection", help="Collection of MongoDB.")
     ap.add_argument("--year", help="Filter Tweets before specified year.")
     ap.add_argument("--since", help="Filter Tweets sent since date (Example: \"2017-12-27 20:30:15\" or 2017-12-27).",
                     metavar="DATE")

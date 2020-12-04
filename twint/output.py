@@ -3,7 +3,7 @@ from datetime import datetime
 from . import format, get
 from .tweet import Tweet
 from .user import User
-from .storage import db, elasticsearch, write, panda
+from .storage import db, elasticsearch, write, panda, mongodb
 
 import logging as logme
 
@@ -150,6 +150,9 @@ async def checkData(tweet, config, conn):
         if config.Elasticsearch:
             logme.debug(__name__ + ':checkData:Elasticsearch')
             elasticsearch.Tweet(tweet, config)
+        if config.MongoDB:
+            print("config.MongoDB: ", config.MongoDB)
+            mongodb.Tweet(tweet, config)
         _output(tweet, output, config)
     # else:
     #     logme.critical(__name__+':checkData:copyrightedTweet')
@@ -180,6 +183,10 @@ async def Users(u, config, conn):
     if config.Database:
         logme.debug(__name__ + ':User:Database')
         db.user(conn, config, user)
+
+    if config.MongoDB:
+        logme.debug(__name__ + ':User:MongoDB')
+        pass
 
     if config.Elasticsearch:
         logme.debug(__name__ + ':User:Elasticsearch')

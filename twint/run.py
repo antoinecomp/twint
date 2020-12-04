@@ -325,7 +325,6 @@ def run(config, callback=None):
         logme.exception(
             __name__ + ':run:Unexpected exception occurred while attempting to get or create a new event loop.')
         raise
-
     get_event_loop().run_until_complete(Twint(config).main(callback))
 
 
